@@ -71,7 +71,7 @@ export const getServerSideProps: GetServerSideProps = async ({req, params})=>{
         title: RichText.asText(response.data.title),
         description: RichText.asHtml(response.data.description),
         cover: response.data.cover.url,
-        updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
+        updatedAt: new Date(response.last_publication_date || '').toLocaleDateString('pt-BR', {
             day: '2-digit',
             month: 'long',
             year: 'numeric'
